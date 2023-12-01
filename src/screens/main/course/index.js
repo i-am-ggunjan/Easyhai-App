@@ -1,11 +1,9 @@
-import { View, Text } from 'react-native'
 import React from 'react'
+import Web from '../../../components/features/Web'
 
 const Course = () => {
     return (
-        <View>
-            <Text>Course</Text>
-        </View>
+        <Web url={`https://test-eho.vercel.app`} />
     )
 }
 

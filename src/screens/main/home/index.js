@@ -1,20 +1,18 @@
 import React, { useContext } from 'react'
-import { View, Text } from 'react-native'
-import { TouchableOpacity } from 'react-native'
-import PrimaryBtn from '../../../components/buttons/PrimaryBtn'
 import { AuthContext } from '../../../context/authContext'
 import Spinner from 'react-native-loading-spinner-overlay'
+import Web from '../../../components/features/Web'
 
 const Home = () => {
-    const { logoutApi, isLoading } = useContext(AuthContext)
+    const { userInfo, isLoading } = useContext(AuthContext)
+    console.log("User Name ::: ", userInfo?.name?.firstName + " " + userInfo?.name?.lastName)
+    const liveClass = "Easyhai by Gaurav Gunjan"
+
     return (
-        <View style={{ flex: 1, justifyContent: "center", paddingHorizontal: 25, gap: 20 }}>
+        <>
             <Spinner visible={isLoading} />
-            <Text>Home</Text>
-            <TouchableOpacity onPress={() => logoutApi()}>
-                <PrimaryBtn name={`Logout`} />
-            </TouchableOpacity>
-        </View>
+            <Web url={`https://meet.easyhaionline.com/${liveClass}`} />
+        </>
     )
 }
 

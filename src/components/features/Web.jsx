@@ -2,9 +2,9 @@ import { View } from 'react-native'
 import React from 'react'
 import { WebView } from 'react-native-webview';
 
-const Web = ({ liveClass }) => {
+const Web = ({ url }) => {
   return (
-    <WebView source={{ uri: `https://meet.easyhaionline.com/${liveClass}` }} />
+    <WebView source={{ uri: url }} />
   )
 }
 
