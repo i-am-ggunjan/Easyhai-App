@@ -7,7 +7,6 @@ import { useNavigation } from '@react-navigation/native';
 
 export const AuthContext = createContext()
 
-
 const AuthContextProvider = ({ children }) => {
     const navigation = useNavigation()
     const [isLoading, setIsLoading] = useState(false)
@@ -24,7 +23,7 @@ const AuthContextProvider = ({ children }) => {
             if (data.status === 200) {
                 console.log("Login Status ::: ", data?.status)
                 setUserToken(data.data.token)
-                ToastAndroid.show('Logged in successfully', ToastAndroid.LONG);
+                ToastAndroid.show('Logged In Successfully', ToastAndroid.LONG);
                 AsyncStorage.setItem("studentAuthKey", JSON.stringify(data.data.token));
                 setIsLoading(false)
                 console.log("Full Run")
@@ -46,7 +45,7 @@ const AuthContextProvider = ({ children }) => {
             const { data } = await axios.post(API_URLS.signup, { phoneNumber, email, password })
             console.log("Signup Res ::: ", data)
             if (data?.status == 201) {
-                ToastAndroid.show('Successfully created the user', ToastAndroid.LONG)
+                ToastAndroid.show('User Created Successfully', ToastAndroid.LONG)
                 navigation.navigate("OtpVerification", { phoneNumber, email })
                 setIsLoading(false)
                 console.log("Full Run")
@@ -77,7 +76,51 @@ const AuthContextProvider = ({ children }) => {
                 setIsLoading(false)
             }
         } catch (error) {
-            console.log("Signup Error ::: ", error)
+            console.log("Otp Verification Error ::: ", error)
+            setIsLoading(false)
+            ToastAndroid.show('Request Failed', ToastAndroid.LONG)
+        }
+    }
+
+    const forgotPassOTPApi = async (phoneNumber) => {
+        console.log("Context Forgot Password Page :: ", phoneNumber)
+        setIsLoading(true)
+        try {
+            const { data } = await axios.put(API_URLS.forgotPassOTP, { phoneNumber })
+            console.log("Forgot Password Res ::: ", data)
+            if (data?.status == 200) {
+                ToastAndroid.show('Otp Sent To Your Mobile', ToastAndroid.LONG)
+                navigation.navigate("CreateNewPassword", { phoneNumber })
+                setIsLoading(false)
+                console.log("Full Run")
+            } else {
+                ToastAndroid.show('Status Not Equal to 200', ToastAndroid.LONG);
+                setIsLoading(false)
+            }
+        } catch (error) {
+            console.log("Forgot Password Error ::: ", error)
+            setIsLoading(false)
+            ToastAndroid.show('Request Failed', ToastAndroid.LONG)
+        }
+    }
+
+    const changePasswordApi = async (phoneNumber, otpCode, password) => {
+        console.log("Context Create New Password Page :: ", phoneNumber, otpCode, password)
+        setIsLoading(true)
+        try {
+            const { data } = await axios.put(API_URLS.changePassword, { phoneNumber, otpCode, password })
+            console.log("Create New Password Res ::: ", data)
+            if (data?.status == 200) {
+                ToastAndroid.show('Password Updated Successfully', ToastAndroid.LONG)
+                navigation.navigate("SuccessFull")
+                setIsLoading(false)
+                console.log("Full Run")
+            } else {
+                ToastAndroid.show('Status Not Equal to 200', ToastAndroid.LONG);
+                setIsLoading(false)
+            }
+        } catch (error) {
+            console.log("Create New Password Error ::: ", error)
             setIsLoading(false)
             ToastAndroid.show('Request Failed', ToastAndroid.LONG)
         }
@@ -142,7 +185,7 @@ const AuthContextProvider = ({ children }) => {
         isLoggedIn()
     }, [userToken])
 
-    const authData = { loginApi, signupApi, otpVerificationApi, logoutApi, isLoading, userToken, userInfo, splashLoading }
+    const authData = { loginApi, signupApi, otpVerificationApi, forgotPassOTPApi, changePasswordApi, logoutApi, isLoading, userToken, userInfo, splashLoading }
 
     return <AuthContext.Provider value={authData}>
         {children}
