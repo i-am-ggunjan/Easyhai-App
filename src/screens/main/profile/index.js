@@ -7,14 +7,21 @@ import Spinner from 'react-native-loading-spinner-overlay'
 import { GlobalStyles } from '../../../styles/globalStyles'
 
 const Profile = () => {
-    const { logoutApi, isLoading } = useContext(AuthContext)
+    const { userInfo, logoutApi, isLoading } = useContext(AuthContext)
+    console.log("User Name ::: ", userInfo?.name?.firstName + " " + userInfo?.name?.lastName)
+
     return (
-        <View style={{ flex: 1, justifyContent: "space-around", paddingHorizontal: 25, gap: 20 }}>
+        <View style={GlobalStyles.global.authSafeAreaView}>
             <Spinner visible={isLoading} />
-            <Text style={GlobalStyles.auth.heading}>Profile</Text>
-            <TouchableOpacity onPress={() => logoutApi()}>
-                <PrimaryBtn name={`Logout`} />
-            </TouchableOpacity>
+            <View style={{ flex: 1, justifyContent: "space-between", gap: 20, paddingVertical: 50 }}>
+                <View>
+                    <Text style={GlobalStyles.auth.heading}>Profile</Text>
+                    <Text>Name : {userInfo?.name?.firstName} {userInfo?.name?.lastName}</Text>
+                </View>
+                <TouchableOpacity onPress={() => logoutApi()}>
+                    <PrimaryBtn name={`Logout`} />
+                </TouchableOpacity>
+            </View>
         </View>
     )
 }

@@ -20,7 +20,7 @@ const BottomNavigation = () => {
                     tabBarLabelStyle: { fontSize: 12 },
                 }}
             >
-                <Tab.Screen name="Menu" component={Home} options={{
+                <Tab.Screen name="Home" component={Home} options={{
                     headerShown: false,
                     tabBarIcon: ({ color, size }) => (
                         <Ionicons name="restaurant-outline" size={23} color={color} />
