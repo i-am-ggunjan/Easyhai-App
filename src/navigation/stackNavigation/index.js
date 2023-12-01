@@ -23,7 +23,7 @@ const StackNavigation = () => {
                 splashLoading ?
                     <Stack.Screen name="SplashScreen" component={SplashScreen} options={{ headerShown: false }} />
                     :
-                    userToken && Object.keys(userInfo).length > 0 ?
+                    userToken && userInfo !== null && Object.keys(userInfo).length > 0 ?
                         <Stack.Group screenOptions={{ headerShown: false }}>
                             <Stack.Screen name="Main" component={BottomNavigation} />
                         </Stack.Group>
