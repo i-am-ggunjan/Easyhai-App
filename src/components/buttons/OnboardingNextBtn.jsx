@@ -54,7 +54,7 @@ const OnboardingNextBtn = ({ percentage, scrollTo, currentIndex, lastLength }) =
                     </G>
                 </Svg>
 
-                <TouchableOpacity onPress={currentIndex === lastLength ? () => navigation.navigate("Welcome") : scrollTo} style={{ position: "absolute", backgroundColor: Color.primary, borderRadius: 50, height: 58, width: 58, justifyContent: 'center', alignItems: 'center' }} activeOpacity={0.6}>
+                <TouchableOpacity onPress={currentIndex === lastLength ? () => navigation.replace("Welcome") : scrollTo} style={{ position: "absolute", backgroundColor: Color.primary, borderRadius: 50, height: 58, width: 58, justifyContent: 'center', alignItems: 'center' }} activeOpacity={0.6}>
                     {currentIndex === lastLength ? <Text style={{ color: Color.white, fontWeight: 500, fontSize: 18 }}>Go</Text> : <Ionicons name="arrow-forward" size={30} color={Color.white} />}
                 </TouchableOpacity>
             </View>
