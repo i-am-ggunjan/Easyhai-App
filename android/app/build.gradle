@@ -115,6 +115,12 @@ dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
 
+    // By Me (For Splash Screen) .........
+    implementation project(':react-native-splash-screen')
+
+    // By Me (For Gifs) .........
+    implementation 'com.facebook.fresco:animated-gif:2.5.0'
+
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}")
     debugImplementation("com.facebook.flipper:flipper-network-plugin:${FLIPPER_VERSION}") {
         exclude group:'com.squareup.okhttp3', module:'okhttp'
@@ -130,5 +136,5 @@ dependencies {
 
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
 
-// By Me (Custom) .........
+// By Me (For RN Vector Icons) .........
 apply from: file("../../node_modules/react-native-vector-icons/fonts.gradle")

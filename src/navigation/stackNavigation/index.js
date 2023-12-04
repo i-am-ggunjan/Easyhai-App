@@ -18,7 +18,7 @@ const StackNavigation = () => {
     const { userInfo, splashLoading, userToken } = useContext(AuthContext)
 
     return (
-        <Stack.Navigator initialRouteName="Welcome" >
+        <Stack.Navigator initialRouteName="Onboarding">
             {
                 splashLoading ?
                     <Stack.Screen name="SplashScreen" component={SplashScreen} options={{ headerShown: false }} />
@@ -28,6 +28,9 @@ const StackNavigation = () => {
                             <Stack.Screen name="Main" component={BottomNavigation} />
                         </Stack.Group>
                         :
+                        // splashLoading ?
+                        //     <Stack.Screen name="SplashScreen" component={SplashScreen} options={{ headerShown: false }} />
+                        //     :
                         <Stack.Group screenOptions={{ headerShown: false }}>
                             <Stack.Screen name="Onboarding" component={OnBoarding} />
                             <Stack.Screen name="Welcome" component={Welcome} />
