@@ -1,10 +1,12 @@
 import React from 'react'
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
-import Ionicons from "react-native-vector-icons/Ionicons"
 import { Color } from '../../styles/colors'
 import Home from '../../screens/main/home'
 import Course from '../../screens/main/course'
 import Profile from '../../screens/main/profile'
+import Lecture from '../../screens/main/lecture'
+import { AccountTabSvg, CourseTabSvg, HomeTabSvg, LectureTabSvg, LogoutSvg } from '../../assets/icons'
+import { View } from 'react-native'
 
 const Tab = createBottomTabNavigator()
 
@@ -12,33 +14,44 @@ const BottomNavigation = () => {
     return (
         <>
             <Tab.Navigator
-                initialRouteName="Menu"
+                initialRouteName="Home"
                 screenOptions={{
-                    tabBarStyle: { paddingBottom: 10, paddingTop: 5, height: 60 },
+                    tabBarHideOnKeyboard: true,
                     tabBarActiveTintColor: Color.primary,
-                    tabBarInactiveTintColor: Color.black,
-                    tabBarLabelStyle: { fontSize: 12 },
+                    tabBarInactiveTintColor: Color.paragraph,
+                    tabBarLabelStyle: { fontSize: 12, fontWeight: 500 },
+                    tabBarStyle: { height: 55, paddingBottom: 5, paddingTop: 5 },
+                    // tabBarActiveBackgroundColor: Color.white,
+                    // tabBarInactiveBackgroundColor: Color.primary,
+                    // tabBarItemStyle: { borderTopLeftRadius: 20, borderTopRightRadius: 20 },
                 }}
             >
                 <Tab.Screen name="Home" component={Home} options={{
                     headerShown: false,
-                    tabBarIcon: ({ color, size }) => (
-                        <Ionicons name="restaurant-outline" size={23} color={color} />
-                    ),
+                    tabBarIcon: ({ color }) => (
+                        <HomeTabSvg color={color} />
+                    )
                 }} />
 
                 <Tab.Screen name="Course" component={Course} options={{
                     headerShown: false,
-                    tabBarIcon: ({ color, size }) => (
-                        <Ionicons name="person-outline" size={23} color={color} />
-                    ),
+                    tabBarIcon: ({ color }) => (
+                        <CourseTabSvg color={color} />
+                    )
                 }} />
 
-                <Tab.Screen name="Profile" component={Profile} options={{
+                <Tab.Screen name="Lecture" component={Lecture} options={{
                     headerShown: false,
-                    tabBarIcon: ({ color, size }) => (
-                        <Ionicons name="person-outline" size={23} color={color} />
-                    ),
+                    tabBarIcon: ({ color }) => (
+                        <LectureTabSvg color={color} />
+                    )
+                }} />
+
+                <Tab.Screen name="Account" component={Profile} options={{
+                    headerShown: false,
+                    tabBarIcon: ({ color }) => (
+                        <AccountTabSvg color={color} />
+                    )
                 }} />
             </Tab.Navigator>
         </>

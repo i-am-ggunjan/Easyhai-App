@@ -1,9 +1,9 @@
 export const Color = {
     primary: "#0B405D",
-    secondary: "#000000",
+    secondary: "#FFC81D",
+    paragraph: "#6F6B80",
     black: "#000000",
     white: "#FFFFFF",
-    paragraph: "#6F6B80",
     lightBackground: "#F8F8FA",
     error: "red",
     iconBg: "#ECECEC",
