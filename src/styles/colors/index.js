@@ -1,14 +1,16 @@
 export const Color = {
     primary: "#0B405D",
     secondary: "#FFC81D",
+    heading: "#231F40",
     paragraph: "#6F6B80",
+    inputField: "#F8F8FA",
+    seeAll: "#6089AA",
+    error: "#A40000",
     black: "#000000",
     white: "#FFFFFF",
+
     lightBackground: "#F8F8FA",
-    error: "red",
     iconBg: "#ECECEC",
-
-
     border: "#d9dddc",
     grey: "#c2c4c6",
     grad1: "#97b3ca",

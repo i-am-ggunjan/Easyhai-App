@@ -19,24 +19,27 @@
 
 import React, { useContext } from 'react'
 import { View, Text, TouchableOpacity, Image } from 'react-native'
-import PrimaryBtn from '../../../components/buttons/PrimaryBtn'
 import { AuthContext } from '../../../context/authContext'
 import AnimatedGifs from "../../../assets/images/AnimatedGifs.gif"
+import { Color } from '../../../styles/colors'
 
 const Lecture = () => {
-    const { logoutApi } = useContext(AuthContext)
 
     return (
-        <View style={{ flex: 1, justifyContent: "space-around", paddingHorizontal: 15 }}>
+        <View style={{ flex: 1, justifyContent: "space-around", paddingHorizontal: 15, backgroundColor: Color.white }}>
             <View style={{ justifyContent: "center", alignItems: "center" }}>
                 <Image
                     style={{ height: 200, width: "100%" }}
                     source={AnimatedGifs}
                 />
             </View>
-            <TouchableOpacity onPress={() => logoutApi()}>
-                <PrimaryBtn name={`Logout`} />
-            </TouchableOpacity>
+
+            <View style={{ justifyContent: "center", alignItems: "center" }}>
+                <Image
+                    style={{ height: 200, width: "100%" }}
+                    source={AnimatedGifs}
+                />
+            </View>
         </View>
     )
 }

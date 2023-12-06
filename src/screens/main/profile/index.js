@@ -37,7 +37,7 @@ const Profile = (props) => {
                     <View style={{ alignItems: "flex-start", gap: 5, flexBasis: "62%" }}>
                         <Text style={{ fontSize: 20, fontWeight: 500, color: Color.white }}>{userInfo?.name?.firstName} {userInfo?.name?.lastName}</Text>
                         <Text style={{ fontSize: 14, color: Color.white }}>{userInfo?.email}</Text>
-                        <TouchableOpacity onPress={() => console.log("Edit Profile")}>
+                        <TouchableOpacity onPress={() => console.log("Edit Profile")} activeOpacity={0.6}>
                             <Text style={{ fontSize: 12, color: Color.secondary, borderBottomWidth: 1, borderBottomColor: Color.secondary, marginTop: 5 }}>Edit Profile</Text>
                         </TouchableOpacity>
                     </View>
@@ -96,6 +96,6 @@ export default Profile
 
 const styles = StyleSheet.create({
     profileBg: {
-        paddingHorizontal: 15, paddingTop: 25, gap: 35, minHeight: 280, paddingBottom: 85
+        paddingHorizontal: 15, paddingTop: 25, gap: 35, minHeight: 290, paddingBottom: 85
     }
 })
