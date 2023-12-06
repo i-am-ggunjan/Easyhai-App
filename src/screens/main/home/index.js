@@ -1,22 +1,21 @@
-import { View, Text, TextInput, SafeAreaView, Image, TouchableOpacity, FlatList } from 'react-native'
-import React, { useState, useContext } from 'react'
+import { View, Text, TextInput, SafeAreaView, Image, TouchableOpacity, FlatList, ScrollView, useWindowDimensions } from 'react-native'
+import React, { useState, useContext, useEffect, useRef } from 'react'
 import { Color } from '../../../styles/colors'
 import Feather from "react-native-vector-icons/Feather"
 import Ionicons from "react-native-vector-icons/Ionicons"
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
 import { AuthContext } from '../../../context/authContext'
 import ProfileImage from "../../../assets/images/ProfileImage.png"
 import { AskDoubtSvg, AssisgmentSvg, AttendenceSvg, EasyhaiSvg, LiveClassSvg, ProgressSvg, ReportSvg, StudyMaterialSvg, TestSvg } from '../../../assets/icons'
 import CarouselOne from "../../../assets/images/CarouselOne.png"
 import CarouselTwo from "../../../assets/images/CarouselTwo.png"
-import { useWindowDimensions } from 'react-native'
-import { ScrollView } from 'react-native'
 
 const Home = () => {
     const { width } = useWindowDimensions()
     const { userInfo } = useContext(AuthContext)
     const [searchTerm, setSearchTerm] = useState('')
     console.log("Search Term ::: ", searchTerm)
+    const flatListRef = useRef(null)
+    const [currentIndex, setCurrentIndex] = useState(0)
     const handleSearch = (text) => {
         setSearchTerm(text)
     }
@@ -39,6 +38,21 @@ const Home = () => {
         { id: 6, image: CarouselTwo }
     ]
 
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            const nextIndex = (currentIndex + 1) % carouselSlide.length;
+            setCurrentIndex(nextIndex)
+            console.log(nextIndex, carouselSlide.length)
+
+            // Check if the next index is within the bounds of the data array
+            if (nextIndex < carouselSlide.length) {
+                // Scroll to the next index
+                flatListRef.current.scrollToIndex({ index: nextIndex, animated: true });
+            }
+        }, 3000)
+        return () => clearInterval(intervalId);
+    }, [carouselSlide])
+
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: Color.white, paddingHorizontal: 15, paddingTop: 10, paddingBottom: 10, gap: 20 }}>
 
@@ -54,7 +68,7 @@ const Home = () => {
                 <View style={{ flex: 1, rowGap: 15 }}>
                     <View style={{ gap: 7 }}>
                         {/* Search Field */}
-                        <View style={{ flexDirection: "row", alignItems: "center", gap: 5, paddingHorizontal: 10, borderRadius: 8, borderColor: Color.border, backgroundColor: Color.lightBackground, borderColor: Color.primary, borderWidth: 1 }}>
+                        <View style={{ flexDirection: "row", alignItems: "center", gap: 5, paddingHorizontal: 10, borderRadius: 8, backgroundColor: Color.lightBackground }}>
                             <Ionicons name="search-outline" size={20} color={Color.primary} />
                             <TextInput onChangeText={handleSearch} placeholder="Search" underlineColorAndroid="transparent" style={{ flex: 1 }} />
                             <View style={{ borderLeftWidth: 1, paddingLeft: 10, borderColor: Color.primary }}>
@@ -65,6 +79,7 @@ const Home = () => {
                         {/* Carousel */}
                         <View>
                             <FlatList
+                                ref={flatListRef}
                                 data={carouselSlide} renderItem={({ item, index }) => (
                                     <Image source={item.image} style={{ width: width - 30, objectFit: "contain", marginBottom: -10 }} />
                                 )}
@@ -88,7 +103,7 @@ const Home = () => {
 
                             <View style={{ flexDirection: "row", columnGap: 10, rowGap: 5, flexWrap: "wrap", justifyContent: "space-between" }}>
                                 {categoryItems?.map((value, index) => (
-                                    <TouchableOpacity key={index} style={{ alignItems: "center" }} >
+                                    <TouchableOpacity activeOpacity={0.6} key={index} style={{ alignItems: "center" }} >
                                         <>{value.icon}</>
                                         <Text style={{ color: Color.heading, fontWeight: 500, marginTop: -5 }}>{value?.name}</Text>
                                     </TouchableOpacity>

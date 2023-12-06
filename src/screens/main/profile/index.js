@@ -28,7 +28,9 @@ const Profile = (props) => {
         <SafeAreaView style={{ flex: 1, backgroundColor: Color.white }}>
             <ImageBackground source={ProfileBg} style={[styles.profileBg]}>
                 <View style={{ flexDirection: "row", gap: 10, alignItems: "center" }}>
-                    <MaterialCommunityIcons name='arrow-left' color={Color.white} size={25} />
+                    <TouchableOpacity activeOpacity={0.6} onPress={() => props.navigation.goBack()}>
+                        <MaterialCommunityIcons name='arrow-left' color={Color.white} size={25} />
+                    </TouchableOpacity>
                     <Text style={{ fontSize: 22, fontWeight: 500, color: Color.white }}>Profile</Text>
                 </View>
 
