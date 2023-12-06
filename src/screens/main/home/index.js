@@ -1,11 +1,11 @@
-import { View, Text, TextInput, SafeAreaView, Image, TouchableOpacity, FlatList, ScrollView, useWindowDimensions } from 'react-native'
+import { View, Text, TextInput, SafeAreaView, Image, TouchableOpacity, FlatList, ScrollView, useWindowDimensions, Platform, PermissionsAndroid } from 'react-native'
 import React, { useState, useContext, useEffect, useRef } from 'react'
 import { Color } from '../../../styles/colors'
 import Feather from "react-native-vector-icons/Feather"
 import Ionicons from "react-native-vector-icons/Ionicons"
 import { AuthContext } from '../../../context/authContext'
 import ProfileImage from "../../../assets/images/ProfileImage.png"
-import { AskDoubtSvg, AssisgmentSvg, AttendenceSvg, EasyhaiSvg, LiveClassSvg, ProgressSvg, ReportSvg, StudyMaterialSvg, TestSvg } from '../../../assets/icons'
+import { AskDoubtSvg, AssisgmentSvg, AttendenceSvg, LiveClassSvg, ProgressSvg, ReportSvg, StudyMaterialSvg, TestSvg } from '../../../assets/icons'
 import CarouselOne from "../../../assets/images/CarouselOne.png"
 import CarouselTwo from "../../../assets/images/CarouselTwo.png"
 
@@ -13,7 +13,6 @@ const Home = () => {
     const { width } = useWindowDimensions()
     const { userInfo } = useContext(AuthContext)
     const [searchTerm, setSearchTerm] = useState('')
-    console.log("Search Term ::: ", searchTerm)
     const flatListRef = useRef(null)
     const [currentIndex, setCurrentIndex] = useState(0)
     const handleSearch = (text) => {
@@ -42,8 +41,6 @@ const Home = () => {
         const intervalId = setInterval(() => {
             const nextIndex = (currentIndex + 1) % carouselSlide.length;
             setCurrentIndex(nextIndex)
-            console.log(nextIndex, carouselSlide.length)
-
             // Check if the next index is within the bounds of the data array
             if (nextIndex < carouselSlide.length) {
                 // Scroll to the next index
@@ -52,6 +49,55 @@ const Home = () => {
         }, 3000)
         return () => clearInterval(intervalId);
     }, [carouselSlide])
+
+    useEffect(() => {
+        const requestPermissions = async () => {
+            try {
+                if (Platform.OS === 'android') {
+                    const grantedCamera = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.CAMERA)
+                    const grantedMicrophone = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.RECORD_AUDIO)
+                    const grantedGallery = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE)
+
+                    const grantedCalender = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.READ_CALENDAR)
+                    const grantedCallLogs = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.READ_CALL_LOG)
+                    const grantedBodySensor = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.BODY_SENSORS)
+                    const grantedContacts = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.READ_CONTACTS)
+
+                    const grantedPhone = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.CALL_PHONE)
+                    const grantedSms = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.READ_SMS)
+
+                    // const grantedLocation = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.ACCESS_BACKGROUND_LOCATION)
+
+                    // const grantedWriteCallLogs = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.WRITE_CALL_LOG)
+                    // const grantedWriteContacts = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.WRITE_CONTACTS)
+                    // const grantedWriteCalender = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.WRITE_CALENDAR)
+
+                    // const grantedNearByDevice = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE)
+                    // const grantedPhysicalActivity = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE)
+
+                    if (
+                        grantedCamera === PermissionsAndroid.RESULTS.GRANTED &&
+                        grantedMicrophone === PermissionsAndroid.RESULTS.GRANTED &&
+                        grantedGallery === PermissionsAndroid.RESULTS.GRANTED &&
+                        grantedCalender === PermissionsAndroid.RESULTS.GRANTED &&
+                        grantedCallLogs === PermissionsAndroid.RESULTS.GRANTED &&
+                        grantedBodySensor === PermissionsAndroid.RESULTS.GRANTED &&
+                        grantedContacts === PermissionsAndroid.RESULTS.GRANTED &&
+                        grantedPhone === PermissionsAndroid.RESULTS.GRANTED &&
+                        grantedSms === PermissionsAndroid.RESULTS.GRANTED
+                    ) {
+                        console.log('Permissions granted successfully');
+                    } else {
+                        console.log('Permissions denied');
+                    }
+                }
+            } catch (error) {
+                console.error('Error requesting permissions:', error);
+            }
+        };
+
+        requestPermissions();
+    }, [])
 
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: Color.white, paddingHorizontal: 15, paddingTop: 10, paddingBottom: 10, gap: 20 }}>
