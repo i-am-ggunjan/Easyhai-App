@@ -5,7 +5,7 @@ export const GlobalStyles = StyleSheet.create({
     global: {
         authSafeAreaView: {
             flex: 1,
-            paddingTop: Platform.OS === "android" ? 0 : 0,
+            // paddingTop: Platform.OS === "android" ? 0 : 0,
             backgroundColor: Color.white,
             paddingHorizontal: 15,
         },

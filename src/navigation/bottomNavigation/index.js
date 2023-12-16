@@ -7,6 +7,7 @@ import Profile from '../../screens/main/profile'
 import Lecture from '../../screens/main/lecture'
 import { AccountTabSvg, CourseTabSvg, HomeTabSvg, LectureTabSvg, LogoutSvg } from '../../assets/icons'
 import { View } from 'react-native'
+import ProfileStackNavigation from '../profileStackNavigation'
 
 const Tab = createBottomTabNavigator()
 
@@ -14,7 +15,7 @@ const BottomNavigation = () => {
     return (
         <>
             <Tab.Navigator
-                initialRouteName="Home"
+                initialRouteName="Account"
                 screenOptions={{
                     tabBarHideOnKeyboard: true,
                     tabBarActiveTintColor: Color.primary,
@@ -47,7 +48,7 @@ const BottomNavigation = () => {
                     )
                 }} />
 
-                <Tab.Screen name="Account" component={Profile} options={{
+                <Tab.Screen name="Account" component={ProfileStackNavigation} options={{
                     headerShown: false,
                     tabBarIcon: ({ color }) => (
                         <AccountTabSvg color={color} />

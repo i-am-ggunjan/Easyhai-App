@@ -1,4 +1,4 @@
-import Svg, { Circle, Defs, G, Image, LinearGradient, Path, Pattern, Rect, Stop, Use, FeFlood, FeBlend, FeColorMatrix, FeOffset, FeGaussianBlur, FeComposite, Filter } from 'react-native-svg'
+import Svg, { Circle, Defs, G, Image, LinearGradient, Path, Pattern, Rect, Stop, Use, ClipPath } from 'react-native-svg'
 
 export const EasyhaiSvg = ({ w = '23', h = '28' }) => {
     return (
@@ -517,5 +517,156 @@ export const TestSvg = ({ w = '80', h = '80' }) => {
         <>
 
         </>
+    )
+}
+
+export const BackArrowSvg = ({ w = '22', h = '16', color = '#231F40' }) => {
+    return (
+        <Svg
+            width={w}
+            height={h}
+            viewBox="0 0 22 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <Path
+                d="M20.367 8.012L1.701 8.06m0 0l6.982-7.018M1.701 8.06l7.018 6.982"
+                stroke={color}
+                strokeWidth={2.2}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+        </Svg>
+    )
+}
+
+export const ClickArrowSvg = ({ w = '7', h = '15', color = '#6F6B80' }) => {
+    return (
+        <Svg
+            width={w}
+            height={h}
+            viewBox="0 0 7 15"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <Path
+                d="M7.001 8a1 1 0 01-.23.64l-5 6a1.001 1.001 0 11-1.54-1.28L4.711 8 .391 2.64a1 1 0 01.15-1.41 1 1 0 011.46.14l4.83 6a1 1 0 01.17.63z"
+                fill={color}
+            />
+        </Svg>
+    )
+}
+
+export const OrderPurchaseSvg = ({ w = '29', h = '28' }) => {
+    return (
+        <Svg
+            width={w}
+            height={h}
+            viewBox="0 0 29 28"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <Path
+                d="M28 14c0 7.732-6.268 14-14 14S0 21.732 0 14 6.268 0 14 0s14 6.268 14 14z"
+                fill="#817D91"
+            />
+            <Circle
+                cx={24.2302}
+                cy={23.154}
+                r={4.06923}
+                fill="#fff"
+                stroke="#fff"
+                strokeWidth={0.6}
+            />
+            <G clipPath="url(#clip0_2464_12659)">
+                <Path
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    d="M20.46 23.154a3.77 3.77 0 117.54 0 3.77 3.77 0 01-7.54 0zm3.555 1.613l2.17-2.713-.392-.313-1.85 2.312-1.311-1.092-.322.386 1.705 1.42z"
+                    fill="#20B37E"
+                />
+            </G>
+            <Path
+                d="M14 7.333c-.133 0-.267.067-.4.133L8.333 10.4A.7.7 0 008 11v6a.7.7 0 00.333.6l5.267 2.933c.133.067.267.133.4.133s.267-.066.4-.133l.6-.333c-.2-.4-.267-.867-.333-1.334V14.4l4-2.267v2.533a4.3 4.3 0 011.333.2V11a.7.7 0 00-.333-.6L14.4 7.466c-.133-.066-.267-.133-.4-.133zM14 8.8l4 2.2-1.333.733-3.934-2.267L14 8.8zm-2.6 1.4l3.933 2.333-1.333.733L10 11l1.4-.8zm-2.067 1.933l4 2.267v4.466l-4-2.266v-4.467zm10.867 4.4l-2.4 2.4-1.067-1.067-.733.8 1.867 2 3.2-3.2-.867-.933z"
+                fill="#fff"
+            />
+            <Defs>
+                <ClipPath id="clip0_2464_12659">
+                    <Path
+                        fill="#fff"
+                        transform="translate(20.46 19.385)"
+                        d="M0 0H7.53846V7.53846H0z"
+                    />
+                </ClipPath>
+            </Defs>
+        </Svg>
+    )
+}
+
+export const DollarSvg = ({ w = '26', h = '26' }) => {
+    return (
+        <Svg
+            width={w}
+            height={h}
+            viewBox="0 0 26 26"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <Path
+                d="M12.998.283C5.976.283.281 5.977.281 13.001c0 7.023 5.694 12.717 12.717 12.717 7.024 0 12.718-5.694 12.718-12.717 0-7.024-5.694-12.718-12.718-12.718zm1.099 19.612v1.792h-1.714v-1.771c-2.811-.385-4.042-2.695-4.042-2.695l1.75-1.464s1.117 1.945 3.139 1.945c1.116 0 1.963-.598 1.963-1.619 0-2.387-6.431-2.097-6.431-6.526 0-1.925 1.522-3.312 3.62-3.64V4.128h1.714v1.79c1.463.192 3.195.962 3.195 2.618v1.27H15.02v-.615c0-.636-.81-1.06-1.715-1.06-1.155 0-2.001.578-2.001 1.387 0 2.445 6.43 1.848 6.43 6.488 0 1.908-1.424 3.561-3.637 3.89z"
+                fill="#80A6C5"
+            />
+        </Svg>
+    )
+}
+
+export const StartEmptySvg = ({ w = '16', h = '16' }) => {
+    return (
+        <Svg
+            width={w}
+            height={h}
+            viewBox="0 0 17 17"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <Path
+                d="M16.298 6.775a.688.688 0 01-.168.293l-.05.044-3.348 2.921-.226.198.067.292 1.003 4.349v.001a.687.687 0 01-1.023.745s0 0 0 0l-3.793-2.3-.26-.157-.259.157-3.783 2.3h-.001a.688.688 0 01-1.024-.745v-.001l1.002-4.345.067-.292-.226-.197L.928 7.112h0L.926 7.11a.688.688 0 01.391-1.205h.002l4.413-.383.3-.026.118-.278 1.722-4.11h0a.684.684 0 011.263 0v.001l1.728 4.109.117.278.3.026 4.412.383h.002a.688.688 0 01.604.87l.482.134-.482-.134z"
+                stroke="#FFC81D"
+            />
+        </Svg>
+    )
+}
+
+export const StartFilledSvg = ({ w = '16', h = '16' }) => {
+    return (
+        <Svg
+            width={w}
+            height={h}
+            viewBox="0 0 17 17"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <Path
+                d="M16.408 7.489l-3.347 2.921 1.002 4.35a1.187 1.187 0 01-1.769 1.286l-3.793-2.3-3.785 2.3a1.187 1.187 0 01-1.77-1.287l1.001-4.344L.6 7.489a1.187 1.187 0 01.677-2.083l4.413-.382L7.41.915a1.184 1.184 0 012.185 0l1.728 4.11 4.412.381a1.187 1.187 0 01.676 2.083h-.004z"
+                fill="#FFC81D"
+            />
+        </Svg>
+    )
+}
+
+export const TimeSvg = ({ w = '10', h = '10' }) => {
+    return (
+        <Svg
+            width={w}
+            height={h}
+            viewBox="0 0 10 10"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <Path
+                d="M5 9a4 4 0 100-8 4 4 0 000 8zm0-9a5 5 0 110 10A5 5 0 015 0zm.25 2.5v2.625L7.5 6.46l-.375.615L4.5 5.5v-3h.75z"
+                fill="#6F6B80"
+            />
+        </Svg>
     )
 }

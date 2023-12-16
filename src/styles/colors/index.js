@@ -6,6 +6,12 @@ export const Color = {
     inputField: "#F8F8FA",
     seeAll: "#6089AA",
     error: "#A40000",
+    dark: "#000000",
+    light: "#FFFFFF",
+    success: "#247A16",
+
+
+
     black: "#000000",
     white: "#FFFFFF",
 

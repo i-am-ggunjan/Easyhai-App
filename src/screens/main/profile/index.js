@@ -7,7 +7,7 @@ import ProfileImage from "../../../assets/images/ProfileImage.png"
 import { Color } from '../../../styles/colors'
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
 import { useWindowDimensions } from 'react-native'
-import { BookmarkSvg, EditAddressSvg, InviteFriendSvg, LanguageSvg, LogoutSvg, OrderHistorySvg, PaymentSvg, ProfileSvg, SecuritySvg } from '../../../assets/icons'
+import { BackArrowSvg, BookmarkSvg, EditAddressSvg, InviteFriendSvg, LanguageSvg, LogoutSvg, OrderHistorySvg, PaymentSvg, ProfileSvg, SecuritySvg } from '../../../assets/icons'
 import ProfileList from '../../../components/cards/ProfileList'
 import LogoutModal from '../../../components/modals/Logout'
 
@@ -29,7 +29,8 @@ const Profile = (props) => {
             <ImageBackground source={ProfileBg} style={[styles.profileBg]}>
                 <View style={{ flexDirection: "row", gap: 10, alignItems: "center" }}>
                     <TouchableOpacity activeOpacity={0.6} onPress={() => props.navigation.goBack()}>
-                        <MaterialCommunityIcons name='arrow-left' color={Color.white} size={25} />
+                        {/* <MaterialCommunityIcons name='arrow-left' color={Color.white} size={25} /> */}
+                        <BackArrowSvg color={Color.white} />
                     </TouchableOpacity>
                     <Text style={{ fontSize: 22, fontWeight: 500, color: Color.white }}>Profile</Text>
                 </View>
@@ -46,7 +47,7 @@ const Profile = (props) => {
                 </View>
             </ImageBackground>
 
-            <ScrollView showsVerticalScrollIndicator={true} contentContainerStyle={{ flexGrow: 1 }} refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}>
+            <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ flexGrow: 1 }} refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}>
                 <View style={{ flex: 1, paddingVertical: 30, paddingHorizontal: 35, gap: 30 }}>
 
                     <TouchableOpacity activeOpacity={0.7} onPress={() => console.log("Help Center")}>
@@ -65,8 +66,8 @@ const Profile = (props) => {
                         <ProfileList name={'Payment'} svg={<PaymentSvg />} />
                     </TouchableOpacity>
 
-                    <TouchableOpacity activeOpacity={0.7} onPress={() => console.log("About Easyhaionline")}>
-                        <ProfileList name={'Order History'} svg={<OrderHistorySvg />} />
+                    <TouchableOpacity activeOpacity={0.7} onPress={() => props.navigation.navigate("MyOrder")}>
+                        <ProfileList name={'My Order'} svg={<OrderHistorySvg />} />
                     </TouchableOpacity>
 
 
