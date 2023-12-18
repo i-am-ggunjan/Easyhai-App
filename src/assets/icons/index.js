@@ -851,3 +851,35 @@ export const CrossSvg = ({ w = '7', h = '7', color = '#6F6B80' }) => {
         </Svg>
     )
 }
+
+
+export const ProtectionSvg = ({ w = '110', h = '110' }) => {
+    return (
+        <Svg
+            width={w}
+            height={h}
+            viewBox="0 0 110 110"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+        >
+            <Path fill="url(#pattern0)" d="M0 0H110V110H0z" />
+            <Defs>
+                <Pattern
+                    id="pattern0"
+                    patternContentUnits="objectBoundingBox"
+                    width={1}
+                    height={1}
+                >
+                    <Use xlinkHref="#image0_2546_4563" transform="scale(.01563)" />
+                </Pattern>
+                <Image
+                    id="image0_2546_4563"
+                    width={64}
+                    height={64}
+                    xlinkHref="data:image/png;base64,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"
+                />
+            </Defs>
+        </Svg>
+    )
+}

@@ -29,17 +29,16 @@ const Profile = (props) => {
             <ImageBackground source={ProfileBg} style={[styles.profileBg]}>
                 <View style={{ flexDirection: "row", gap: 10, alignItems: "center" }}>
                     <TouchableOpacity activeOpacity={0.6} onPress={() => props.navigation.goBack()}>
-                        {/* <MaterialCommunityIcons name='arrow-left' color={Color.white} size={25} /> */}
                         <BackArrowSvg color={Color.white} />
                     </TouchableOpacity>
-                    <Text style={{ fontSize: 22, fontWeight: 500, color: Color.white }}>Profile</Text>
+                    <Text style={{ fontSize: 20, fontWeight: 500, color: Color.white }}>Profile</Text>
                 </View>
 
                 <View style={{ flexDirection: "row", gap: 20, alignItems: "center", paddingLeft: 20, flexWrap: "wrap" }}>
                     <Image source={ProfileImage} resizeMode='cover' style={{ height: 90, width: 90, borderRadius: 100 }} />
                     <View style={{ alignItems: "flex-start", gap: 5, flexBasis: "62%" }}>
-                        <Text style={{ fontSize: 20, fontWeight: 500, color: Color.white }}>{userInfo?.name?.firstName} {userInfo?.name?.lastName}</Text>
-                        <Text style={{ fontSize: 14, color: Color.white }}>{userInfo?.email}</Text>
+                        <Text style={{ fontSize: 18, fontWeight: 500, color: Color.white, textTransform: "capitalize" }}>{userInfo?.name?.firstName} {userInfo?.name?.lastName}</Text>
+                        <Text style={{ fontSize: 14, color: Color.white, textTransform: "lowercase" }}>{userInfo?.email}</Text>
                         <TouchableOpacity onPress={() => console.log("Edit Profile")} activeOpacity={0.6}>
                             <Text style={{ fontSize: 12, color: Color.secondary, borderBottomWidth: 1, borderBottomColor: Color.secondary, marginTop: 5 }}>Edit Profile</Text>
                         </TouchableOpacity>
@@ -58,7 +57,7 @@ const Profile = (props) => {
                         <ProfileList name={'Edit Address'} svg={<EditAddressSvg />} />
                     </TouchableOpacity>
 
-                    <TouchableOpacity activeOpacity={0.7} onPress={() => console.log("Security")}>
+                    <TouchableOpacity activeOpacity={0.7} onPress={() => props.navigation.navigate("Security")}>
                         <ProfileList name={'Security'} svg={<SecuritySvg />} />
                     </TouchableOpacity>
 
@@ -75,8 +74,8 @@ const Profile = (props) => {
                         <ProfileList name={'Language'} svg={<LanguageSvg />} />
                     </TouchableOpacity>
 
-                    <TouchableOpacity activeOpacity={0.7} onPress={() => console.log("Invite Friends")}>
-                        <ProfileList name={'Invite Friends'} svg={<InviteFriendSvg />} />
+                    <TouchableOpacity activeOpacity={0.7} onPress={() => props.navigation.navigate("Notification")}>
+                        <ProfileList name={'Notification'} svg={<InviteFriendSvg />} />
                     </TouchableOpacity>
 
                     <TouchableOpacity activeOpacity={0.7} onPress={() => console.log("Invite Friends")}>

@@ -3,6 +3,7 @@ import { View, Text, SafeAreaView, TouchableOpacity, RefreshControl, ScrollView,
 import { Color } from '../../../../../styles/colors'
 import { BackArrowSvg, BankIconSvg, BoxCheckSvg, ClickArrowSvg, DollarSvg, EmailSvg, HelpMicSvg, InfoSvg, OrderPurchaseSvg, PhoneSvg, StartEmptySvg, StartFilledSvg, TimeSvg } from '../../../../../assets/icons'
 import OrderImage from "../../../../../assets/images/OrderImage.png"
+import ArrowHeading from '../../../../../components/cards/ArrowHeading'
 
 const OrderDetail = (props) => {
     const [refreshing, setRefreshing] = useState(false)
@@ -21,14 +22,7 @@ const OrderDetail = (props) => {
 
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: Color.white }}>
-
-            <View style={{ flexDirection: "row", gap: 20, alignItems: "center", paddingVertical: 15, paddingHorizontal: 15 }}>
-                <TouchableOpacity activeOpacity={0.6} onPress={() => props.navigation.goBack()}>
-                    <BackArrowSvg color={Color.heading} />
-                </TouchableOpacity>
-                <Text style={{ fontSize: 22, fontWeight: 500, color: Color.heading }}>Item Details</Text>
-            </View>
-
+            <ArrowHeading heading={'Item Details'} />
 
             <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ flexGrow: 1 }} refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}>
                 <View style={{ flex: 1, paddingBottom: 20, gap: 15 }}>
