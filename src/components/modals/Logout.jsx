@@ -14,18 +14,18 @@ const Logout = ({ modalVisible, setModalVisible }) => {
                         <View style={{ display: "flex", gap: 25 }}>
                             <Text style={{ color: Color.primary, fontSize: 20, fontWeight: "500", textAlign: "center", }} >Logout</Text>
 
-                            <View style={{ borderWidth: 0.3, borderColor: Color.secondary, flex: 1 }} />
+                            <View style={{ borderWidth: 0.3, borderColor: Color.paragraph, flex: 1 }} />
 
-                            <Text style={{ fontSize: 16, fontWeight: "500", textAlign: "center", color: Color.paragraph }}>Are you sure you want to logout?</Text>
+                            <Text style={{ fontSize: 16, fontWeight: "500", textAlign: "center", color: Color.heading }}>Are you sure you want to logout?</Text>
                         </View>
 
                         <View style={{ flexDirection: "row", gap: 20, justifyContent: "center" }} >
                             <TouchableOpacity onPress={() => setModalVisible(!modalVisible)} style={{ flex: 1 }}>
-                                <Text style={{ borderColor: Color.primary, color: Color.primary, textAlign: "center", paddingVertical: 12, borderRadius: 6, fontWeight: 600, fontSize: 16, borderWidth: 1 }}>No</Text>
+                                <Text style={{ backgroundColor: "#6089AA30", color: Color.primary, textAlign: "center", paddingVertical: 12, borderRadius: 6, fontWeight: 500, fontSize: 16 }}>No</Text>
                             </TouchableOpacity>
 
                             <TouchableOpacity onPress={logoutApi} style={{ flex: 1 }}>
-                                <Text style={{ backgroundColor: Color.primary, color: Color.white, textAlign: "center", paddingVertical: 12, borderRadius: 8, fontWeight: 600, fontSize: 16 }}>Yes</Text>
+                                <Text style={{ backgroundColor: Color.primary, color: Color.light, textAlign: "center", paddingVertical: 12, borderRadius: 6, fontWeight: 500, fontSize: 16 }}>Yes</Text>
                             </TouchableOpacity>
                         </View>
                     </View>
