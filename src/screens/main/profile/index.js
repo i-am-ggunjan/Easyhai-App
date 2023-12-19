@@ -10,12 +10,14 @@ import { useWindowDimensions } from 'react-native'
 import { BackArrowSvg, BookmarkSvg, EditAddressSvg, InviteFriendSvg, LanguageSvg, LogoutSvg, OrderHistorySvg, PaymentSvg, ProfileSvg, SecuritySvg } from '../../../assets/icons'
 import ProfileList from '../../../components/cards/ProfileList'
 import LogoutModal from '../../../components/modals/Logout'
+import PaymentModal from '../../../components/modals/Payment'
 
 const Profile = (props) => {
     const { width } = useWindowDimensions()
     const { userInfo } = useContext(AuthContext)
     const [refreshing, setRefreshing] = useState(false)
-    const [modalVisible, setModalVisible] = useState(false)
+    const [logoutModalVisible, setLogoutModalVisible] = useState(false)
+    const [paymentModalVisible, setPaymentModalVisible] = useState(false)
 
     const onRefresh = () => {
         setRefreshing(true);
@@ -61,14 +63,13 @@ const Profile = (props) => {
                         <ProfileList name={'Security'} svg={<SecuritySvg />} />
                     </TouchableOpacity>
 
-                    <TouchableOpacity activeOpacity={0.7} onPress={() => console.log("Payment")}>
+                    <TouchableOpacity activeOpacity={0.7} onPress={() => setPaymentModalVisible(true)}>
                         <ProfileList name={'Payment'} svg={<PaymentSvg />} />
                     </TouchableOpacity>
 
                     <TouchableOpacity activeOpacity={0.7} onPress={() => props.navigation.navigate("MyOrder")}>
                         <ProfileList name={'My Order'} svg={<OrderHistorySvg />} />
                     </TouchableOpacity>
-
 
                     <TouchableOpacity activeOpacity={0.7} onPress={() => console.log("Language")}>
                         <ProfileList name={'Language'} svg={<LanguageSvg />} />
@@ -82,12 +83,13 @@ const Profile = (props) => {
                         <ProfileList name={'Bookmark'} svg={<BookmarkSvg />} />
                     </TouchableOpacity>
 
-                    <TouchableOpacity activeOpacity={0.7} onPress={() => setModalVisible(true)}>
+                    <TouchableOpacity activeOpacity={0.7} onPress={() => setLogoutModalVisible(true)}>
                         <ProfileList name={'Logout'} svg={<LogoutSvg />} />
                     </TouchableOpacity>
 
                     {/* Modal */}
-                    <LogoutModal modalVisible={modalVisible} setModalVisible={setModalVisible} />
+                    <LogoutModal modalVisible={logoutModalVisible} setModalVisible={setLogoutModalVisible} />
+                    <PaymentModal modalVisible={paymentModalVisible} setModalVisible={setPaymentModalVisible} />
                 </View>
             </ScrollView>
         </SafeAreaView >

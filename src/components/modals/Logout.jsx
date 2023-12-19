@@ -8,8 +8,8 @@ const Logout = ({ modalVisible, setModalVisible }) => {
 
     return (
         <View>
-            <Modal animationType="slide" transparent={true} visible={modalVisible} onRequestClose={() => { setModalVisible(!modalVisible) }} >
-                <View style={{ flex: 1, justifyContent: "flex-end" }} >
+            <Modal animationType="none" transparent={true} visible={modalVisible} onRequestClose={() => { setModalVisible(!modalVisible) }} >
+                <View style={{ flex: 1, justifyContent: "flex-end", backgroundColor: "#00000060", }} >
                     <View style={[styles.modalView]}>
                         <View style={{ display: "flex", gap: 25 }}>
                             <Text style={{ color: Color.primary, fontSize: 20, fontWeight: "500", textAlign: "center", }} >Logout</Text>
@@ -40,11 +40,9 @@ const styles = StyleSheet.create({
         backgroundColor: "#fff",
         borderTopLeftRadius: 30,
         borderTopRightRadius: 30,
-        padding: 35,
+        paddingHorizontal: 25,
+        paddingVertical: 30,
         gap: 25,
-        borderTopColor: Color.primary,
-        borderWidth: 1,
-        borderBottomWidth: 0
     }
 });
 

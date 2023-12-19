@@ -50,7 +50,7 @@ const Security = (props) => {
                     ))}
 
                     <TouchableOpacity activeOpacity={0.6} onPress={() => props.navigation.navigate('DeactivateAccount')} style={{ paddingVertical: 4 }}>
-                        <Text style={{ color: Color.heading }}>Deactivate Account</Text>
+                        <Text style={{ color: Color.primary, fontWeight: 500 }}>Deactivate Account</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity activeOpacity={0.6}>

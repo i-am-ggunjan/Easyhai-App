@@ -27,9 +27,9 @@ const DeactivateAccount = (props) => {
 
                     <View style={{ justifyContent: "space-between", flex: 1 }}>
                         <View style={{ gap: 20 }}>
-                            <Text style={{ color: Color.heading, fontSize: 15 }}>If There is anything we can help you, Please <Text style={{ color: "#6089AA" }}>contact us</Text></Text>
-                            <Text style={{ color: Color.heading, fontSize: 15 }}>Onc its closed you want be able to use the easyhaionline after 45 days it can be re-opened</Text>
-                            <Text style={{ color: Color.heading, fontSize: 15 }}>If you’d like , you can ask us to <Text style={{ color: "#6089AA" }}>Delete your Data</Text> before Closing the account</Text>
+                            <Text style={{ color: Color.paragraph, fontSize: 14, textAlign: "justify" }}>If There is anything we can help you, Please <Text style={{ color: "#6089AA", fontWeight: 500 }}>contact us.</Text></Text>
+                            <Text style={{ color: Color.paragraph, fontSize: 14, textAlign: "justify" }}>Onc its closed you want be able to use the easyhaionline after 45 days it can be re-opened.</Text>
+                            <Text style={{ color: Color.paragraph, fontSize: 14, textAlign: "justify" }}>If you’d like , you can ask us to <Text style={{ color: "#6089AA", fontWeight: 500 }}>Delete your Data</Text> before Closing the account.</Text>
                         </View>
 
                         <TouchableOpacity activeOpacity={0.6}>
