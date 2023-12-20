@@ -11,6 +11,17 @@ import ForgotPassword from '../../screens/auth/forgotPassword'
 import SuccessFull from '../../screens/auth/forgotPassword/successFull'
 import SplashScreen from '../../components/features/SplashScreen'
 import { AuthContext } from '../../context/authContext'
+import ProfileEdit from '../../screens/main/profile/profileEdit'
+import ProfileInfo from '../../screens/main/profile/profileInfo'
+import MyOrder from '../../screens/main/profile/myOrder'
+import OrderDetail from '../../screens/main/profile/myOrder/orderDetail'
+import Notification from '../../screens/main/profile/notification'
+import Security from '../../screens/main/profile/security'
+import DeactivateAccount from '../../screens/main/profile/security/deactivateAccount'
+import Wallet from '../../screens/main/profile/payment/wallet'
+import OpenWallet from '../../screens/main/profile/payment/wallet/openWallet'
+import EMI from '../../screens/main/profile/payment/emi'
+import Transaction from '../../screens/main/profile/payment/transaction'
 
 const Stack = createNativeStackNavigator()
 
@@ -26,11 +37,20 @@ const StackNavigation = () => {
                     userToken && userInfo !== null && Object.keys(userInfo).length > 0 ?
                         <Stack.Group screenOptions={{ headerShown: false }}>
                             <Stack.Screen name="Main" component={BottomNavigation} />
+                            <Stack.Screen name="ProfileInfo" component={ProfileInfo} />
+                            <Stack.Screen name="ProfileEdit" component={ProfileEdit} />
+
+                            <Stack.Screen name="MyOrder" component={MyOrder} />
+                            <Stack.Screen name="OrderDetail" component={OrderDetail} />
+                            <Stack.Screen name="Notification" component={Notification} />
+                            <Stack.Screen name="Security" component={Security} />
+                            <Stack.Screen name="DeactivateAccount" component={DeactivateAccount} />
+                            <Stack.Screen name="Wallet" component={Wallet} />
+                            <Stack.Screen name="OpenWallet" component={OpenWallet} />
+                            <Stack.Screen name="EMI" component={EMI} />
+                            <Stack.Screen name="Transaction" component={Transaction} />
                         </Stack.Group>
                         :
-                        // splashLoading ?
-                        //     <Stack.Screen name="SplashScreen" component={SplashScreen} options={{ headerShown: false }} />
-                        //     :
                         <Stack.Group screenOptions={{ headerShown: false }}>
                             <Stack.Screen name="Onboarding" component={OnBoarding} />
                             <Stack.Screen name="Welcome" component={Welcome} />

@@ -41,7 +41,7 @@ const Profile = (props) => {
                     <View style={{ alignItems: "flex-start", gap: 5, flexBasis: "62%" }}>
                         <Text style={{ fontSize: 18, fontWeight: 500, color: Color.white, textTransform: "capitalize" }}>{userInfo?.name?.firstName} {userInfo?.name?.lastName}</Text>
                         <Text style={{ fontSize: 14, color: Color.white, textTransform: "lowercase" }}>{userInfo?.email}</Text>
-                        <TouchableOpacity onPress={() => console.log("Edit Profile")} activeOpacity={0.6}>
+                        <TouchableOpacity onPress={() => props.navigation.navigate('ProfileEdit')} activeOpacity={0.6}>
                             <Text style={{ fontSize: 12, color: Color.secondary, borderBottomWidth: 1, borderBottomColor: Color.secondary, marginTop: 5 }}>Edit Profile</Text>
                         </TouchableOpacity>
                     </View>
@@ -51,11 +51,11 @@ const Profile = (props) => {
             <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ flexGrow: 1 }} refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}>
                 <View style={{ flex: 1, paddingVertical: 30, paddingHorizontal: 35, gap: 30 }}>
 
-                    <TouchableOpacity activeOpacity={0.7} onPress={() => props.navigation.navigate("Latest")}>
+                    <TouchableOpacity activeOpacity={0.7} onPress={() => props.navigation.navigate("ProfileInfo")}>
                         <ProfileList name={'Personal Info'} svg={<ProfileSvg />} />
                     </TouchableOpacity>
 
-                    <TouchableOpacity activeOpacity={0.7} onPress={() => console.log("Help Center")}>
+                    <TouchableOpacity activeOpacity={0.7} onPress={() => console.log("Edit Address")}>
                         <ProfileList name={'Edit Address'} svg={<EditAddressSvg />} />
                     </TouchableOpacity>
 
@@ -79,8 +79,8 @@ const Profile = (props) => {
                         <ProfileList name={'Notification'} svg={<InviteFriendSvg />} />
                     </TouchableOpacity>
 
-                    <TouchableOpacity activeOpacity={0.7} onPress={() => console.log("Invite Friends")}>
-                        <ProfileList name={'Bookmark'} svg={<BookmarkSvg />} />
+                    <TouchableOpacity activeOpacity={0.7} onPress={() => console.log("Wish List")}>
+                        <ProfileList name={'WishList'} svg={<BookmarkSvg />} />
                     </TouchableOpacity>
 
                     <TouchableOpacity activeOpacity={0.7} onPress={() => setLogoutModalVisible(true)}>

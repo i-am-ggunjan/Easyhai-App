@@ -48,7 +48,7 @@ const BottomNavigation = () => {
                     )
                 }} />
 
-                <Tab.Screen name="Account" component={ProfileStackNavigation} options={{
+                <Tab.Screen name="Account" component={Profile} options={{
                     headerShown: false,
                     tabBarIcon: ({ color }) => (
                         <AccountTabSvg color={color} />
