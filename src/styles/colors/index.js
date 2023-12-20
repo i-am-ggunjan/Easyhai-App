@@ -1,5 +1,6 @@
 export const Color = {
     primary: "#0B405D",
+    primaryTwo: "#396382",
     secondary: "#FFC81D",
     heading: "#231F40",
     paragraph: "#6F6B80",
@@ -9,13 +10,13 @@ export const Color = {
     dark: "#000000",
     light: "#FFFFFF",
     success: "#247A16",
-
-
+    lightBackground: "#F8F8FA",
 
     black: "#000000",
     white: "#FFFFFF",
 
-    lightBackground: "#F8F8FA",
+
+
     iconBg: "#ECECEC",
     border: "#d9dddc",
     grey: "#c2c4c6",

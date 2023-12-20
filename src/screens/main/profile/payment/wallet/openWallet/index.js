@@ -22,9 +22,8 @@ const OpenWallet = (props) => {
             <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ flexGrow: 1 }} refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}>
                 <View style={{ flex: 1, paddingBottom: 20, gap: 15, paddingHorizontal: 15 }}>
                     <View style={{ justifyContent: "center", alignItems: "center", gap: 25, padding: 40 }}>
-                        {/* <WalletImageSvg /> */}
-                        <Image source={WalletLogo} style={{ objectFit: "contain" }} />
-                        <Text style={{ color: "#6089AA", fontWeight: 500, fontSize: 16, textAlign: "center" }}>Oh! Oh! It Seems Your Wallet is Empty</Text>
+                        <Image source={WalletLogo} style={{ objectFit: "contain", width: "110%" }} />
+                        <Text style={{ color: Color.primaryTwo, fontWeight: 500, fontSize: 17, textAlign: "center" }}>Oh! Oh! It Seems Your Wallet is Empty</Text>
                     </View>
 
                     <View style={{ justifyContent: "space-around", flex: 1 }}>

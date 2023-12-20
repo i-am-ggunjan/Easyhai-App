@@ -9,8 +9,8 @@ const RefundDetail = ({ modalVisible, setModalVisible }) => {
 
     return (
         <View>
-            <Modal animationType="slide" transparent={true} visible={modalVisible} onRequestClose={() => { setModalVisible(!modalVisible) }} >
-                <View style={{ flex: 1, justifyContent: "flex-end" }} >
+            <Modal animationType="none" transparent={true} visible={modalVisible} onRequestClose={() => { setModalVisible(!modalVisible) }} >
+                <View style={{ flex: 1, justifyContent: "flex-end", backgroundColor: "#00000060" }} >
                     <View style={[styles.modalView]}>
                         <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
                             <Text style={{ color: Color.heading, fontWeight: 500, fontSize: 17 }}>Refund details</Text>

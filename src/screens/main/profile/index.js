@@ -51,7 +51,7 @@ const Profile = (props) => {
             <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ flexGrow: 1 }} refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}>
                 <View style={{ flex: 1, paddingVertical: 30, paddingHorizontal: 35, gap: 30 }}>
 
-                    <TouchableOpacity activeOpacity={0.7} onPress={() => console.log("Help Center")}>
+                    <TouchableOpacity activeOpacity={0.7} onPress={() => props.navigation.navigate("Latest")}>
                         <ProfileList name={'Personal Info'} svg={<ProfileSvg />} />
                     </TouchableOpacity>
 

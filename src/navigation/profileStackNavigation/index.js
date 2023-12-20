@@ -9,6 +9,7 @@ import Wallet from "../../screens/main/profile/payment/wallet"
 import EMI from "../../screens/main/profile/payment/emi"
 import Transaction from "../../screens/main/profile/payment/transaction"
 import OpenWallet from "../../screens/main/profile/payment/wallet/openWallet"
+import DropdownComponent from "../../screens/main/profile/Latest"
 
 const Stack = createNativeStackNavigator()
 
@@ -27,6 +28,7 @@ const ProfileStackNavigation = () => {
                     <Stack.Screen name="EMI" component={EMI} />
                     <Stack.Screen name="Transaction" component={Transaction} />
                     <Stack.Screen name="OpenWallet" component={OpenWallet} />
+                    <Stack.Screen name="Latest" component={DropdownComponent} />
                 </Stack.Group>
             }
         </Stack.Navigator >
