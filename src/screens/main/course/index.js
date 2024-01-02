@@ -1,11 +1,11 @@
-import React from 'react'
 import { View, Text } from 'react-native'
-import Web from '../../../components/features/Web'
+import React from 'react'
+import { Color } from '../../../styles/colors'
 
 const Course = () => {
     return (
-        <View style={{ flex: 1 }}>
-            <Web url={`https://test-eho.vercel.app/courses`} />
+        <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: Color.light }}>
+            <Text>Course Coming Soon ...</Text>
         </View>
     )
 }

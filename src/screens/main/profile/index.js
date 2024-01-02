@@ -55,7 +55,7 @@ const Profile = (props) => {
                         <ProfileList name={'Personal Info'} svg={<ProfileSvg />} />
                     </TouchableOpacity>
 
-                    <TouchableOpacity activeOpacity={0.7} onPress={() => console.log("Edit Address")}>
+                    <TouchableOpacity activeOpacity={0.7} onPress={() => props.navigation.navigate("Address")}>
                         <ProfileList name={'Edit Address'} svg={<EditAddressSvg />} />
                     </TouchableOpacity>
 

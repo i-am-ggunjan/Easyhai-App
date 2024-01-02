@@ -30,11 +30,11 @@ const Home = () => {
 
     const carouselSlide = [
         { id: 1, image: CarouselOne },
-        { id: 2, image: CarouselTwo },
+        { id: 2, image: CarouselOne },
         { id: 3, image: CarouselOne },
-        { id: 4, image: CarouselTwo },
+        { id: 4, image: CarouselOne },
         { id: 5, image: CarouselOne },
-        { id: 6, image: CarouselTwo }
+        { id: 6, image: CarouselOne }
     ]
 
     useEffect(() => {
@@ -157,8 +157,7 @@ const Home = () => {
                             </View>
                         </View>
 
-                        {/* Most Popular Courses */}
-                        <View style={{ gap: 10 }}>
+                        {/* <View style={{ gap: 10 }}>
                             <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
                                 <Text style={{ color: Color.heading, fontWeight: 500, fontSize: 17 }}>Most Popular Courses</Text>
                                 <TouchableOpacity>
@@ -167,7 +166,6 @@ const Home = () => {
                             </View>
                         </View>
 
-                        {/* Top Mentors */}
                         <View style={{ gap: 10 }}>
                             <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
                                 <Text style={{ color: Color.heading, fontWeight: 500, fontSize: 17 }}>Top Mentors</Text>
@@ -184,7 +182,7 @@ const Home = () => {
                                     <Text style={{ color: Color.seeAll, fontSize: 14, fontWeight: 500 }}>see all</Text>
                                 </TouchableOpacity>
                             </View>
-                        </View>
+                        </View> */}
 
                     </View>
                 </View>

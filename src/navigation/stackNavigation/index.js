@@ -22,6 +22,9 @@ import Wallet from '../../screens/main/profile/payment/wallet'
 import OpenWallet from '../../screens/main/profile/payment/wallet/openWallet'
 import EMI from '../../screens/main/profile/payment/emi'
 import Transaction from '../../screens/main/profile/payment/transaction'
+import Address from '../../screens/main/profile/address'
+import AddAddress from '../../screens/main/profile/address/addAddress'
+import EditAddress from '../../screens/main/profile/address/editAddress'
 
 const Stack = createNativeStackNavigator()
 
@@ -39,6 +42,9 @@ const StackNavigation = () => {
                             <Stack.Screen name="Main" component={BottomNavigation} />
                             <Stack.Screen name="ProfileInfo" component={ProfileInfo} />
                             <Stack.Screen name="ProfileEdit" component={ProfileEdit} />
+                            <Stack.Screen name="Address" component={Address} />
+                            <Stack.Screen name="AddAddress" component={AddAddress} />
+                            <Stack.Screen name="EditAddress" component={EditAddress} />
 
                             <Stack.Screen name="MyOrder" component={MyOrder} />
                             <Stack.Screen name="OrderDetail" component={OrderDetail} />

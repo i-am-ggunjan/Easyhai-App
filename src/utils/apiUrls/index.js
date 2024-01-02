@@ -1,4 +1,5 @@
-const BASE_URL = `https://testapi.easyhaionline.com`
+// const BASE_URL = `https://testapi.easyhaionline.com`
+const BASE_URL = `http://192.168.29.31:8000`
 
 export const API_URLS = {
     // Auth API

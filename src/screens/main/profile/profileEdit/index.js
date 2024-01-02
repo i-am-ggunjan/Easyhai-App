@@ -12,7 +12,6 @@ const ProfileEdit = (props) => {
     const { userInfo } = useContext(AuthContext)
 
     const [profileData, setProfileData] = useState({ name: '', email: '', phoneNumber: '', grade: '', gender: '', dateOfBirth: '' })
-    console.log(profileData)
 
     const [refreshing, setRefreshing] = useState(false)
     const onRefresh = () => {
@@ -41,7 +40,7 @@ const ProfileEdit = (props) => {
                     <TouchableOpacity activeOpacity={0.6} onPress={() => props.navigation.goBack()}>
                         <BackArrowSvg color={Color.white} />
                     </TouchableOpacity>
-                    <TouchableOpacity activeOpacity={0.6}>
+                    <TouchableOpacity onPress={() => console.log(profileData)} activeOpacity={0.6}>
                         <Text style={{ fontSize: 16, fontWeight: 500, color: Color.secondary, borderWidth: 1, borderColor: Color.secondary, paddingVertical: 4, paddingHorizontal: 10, borderRadius: 7 }}>Save</Text>
                     </TouchableOpacity>
                 </View>
@@ -56,17 +55,17 @@ const ProfileEdit = (props) => {
 
                     <View style={{ borderBottomWidth: 1, borderColor: '#B6B3BF', paddingBottom: 5, gap: 4 }}>
                         <Text style={{ color: Color.paragraph }}>Name*</Text>
-                        <TextInput onChangeText={(item) => setProfileData({ ...profileData, name: item })} placeholder='Name Kumar' style={{ paddingVertical: 1, color: Color.paragraph }} />
+                        <TextInput onChangeText={(item) => setProfileData({ ...profileData, name: item })} placeholder='Name ...' style={{ paddingVertical: 1, color: Color.paragraph }} />
                     </View>
 
                     <View style={{ borderBottomWidth: 1, borderColor: '#B6B3BF', paddingBottom: 5, gap: 4 }}>
                         <Text style={{ color: Color.paragraph }}>Email Id*</Text>
-                        <TextInput onChangeText={(item) => setProfileData({ ...profileData, email: item })} placeholder='Name Kumar' style={{ paddingVertical: 1, color: Color.paragraph }} />
+                        <TextInput onChangeText={(item) => setProfileData({ ...profileData, email: item })} placeholder='Email ...' style={{ paddingVertical: 1, color: Color.paragraph }} />
                     </View>
 
                     <View style={{ borderBottomWidth: 1, borderColor: '#B6B3BF', paddingBottom: 5, gap: 4 }}>
                         <Text style={{ color: Color.paragraph }}>Mobile*</Text>
-                        <TextInput onChangeText={(item) => setProfileData({ ...profileData, phoneNumber: item })} placeholder='Name Kumar' style={{ paddingVertical: 1, color: Color.paragraph }} />
+                        <TextInput onChangeText={(item) => setProfileData({ ...profileData, phoneNumber: item })} placeholder='Mobile ...' style={{ paddingVertical: 1, color: Color.paragraph }} />
                     </View>
 
                     <View style={{ borderBottomWidth: 1, borderColor: '#B6B3BF', paddingBottom: 5, gap: 4 }}>
@@ -80,7 +79,7 @@ const ProfileEdit = (props) => {
                             maxHeight={300}
                             labelField="label"
                             valueField="value"
-                            placeholder="Grade"
+                            placeholder="Grade ..."
                             value={profileData?.grade}
                             onChange={item => {
                                 setProfileData({ ...profileData, grade: item?.value })
@@ -99,7 +98,7 @@ const ProfileEdit = (props) => {
                             maxHeight={300}
                             labelField="label"
                             valueField="value"
-                            placeholder="Gender"
+                            placeholder="Gender ..."
                             value={profileData?.gender}
                             onChange={item => {
                                 setProfileData({ ...profileData, gender: item?.value })
@@ -109,7 +108,7 @@ const ProfileEdit = (props) => {
 
                     <View style={{ borderBottomWidth: 1, borderColor: '#B6B3BF', paddingBottom: 5, gap: 4 }}>
                         <Text style={{ color: Color.paragraph }}>Date of Birth*</Text>
-                        <TextInput placeholder='Name Kumar' style={{ paddingVertical: 1, color: Color.paragraph }} />
+                        <TextInput placeholder='Date of Birth ...' style={{ paddingVertical: 1, color: Color.paragraph }} />
                     </View>
                 </View>
             </ScrollView>
